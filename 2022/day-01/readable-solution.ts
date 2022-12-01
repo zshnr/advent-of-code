@@ -24,26 +24,28 @@ const sortDescending = (n1: number, n2: number) => n2 - n1;
 
 const sum = (n1: number, n2: number) => n1 + n2
 
-export async function solutionPartOne() {
-  return pipe(
+async function solution() {
+  const input = await readInput()
+  const topMostCalories = pipe(
     split(/[^0-9]\n/),
     map(formatStringsIntoCollections),
     flatMap(calculateTotalCaloriesForEachElf),
     sort(sortDescending),
     slice(0, 1),
     reduce(sum, 0)
-  )(await readInput())
-}
-solutionPartOne().then((a) => console.log('Question 1, Part 1', a));
+  )(input)
 
-export async function solutionPartTwo() {
-  return pipe(
+  console.log('Question 1, Part 1', topMostCalories)
+
+  const topThreeMostCaloriesCumulated = pipe(
     split(/[^0-9]\n/),
     map(formatStringsIntoCollections),
     flatMap(calculateTotalCaloriesForEachElf),
     sort(sortDescending),
-    slice(0, 3),
+    slice(0, 1),
     reduce(sum, 0)
-  )(await readInput())
+  )(input)
+
+  console.log('Question 2, Part 2', topThreeMostCaloriesCumulated)
 }
-solutionPartTwo().then((a) => console.log('Question 2, Part 2', a));
+solution().then();
