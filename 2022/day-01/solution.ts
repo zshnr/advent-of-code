@@ -22,7 +22,7 @@ const calculateTotalCaloriesForEachElf = (calories: Array<number>): number =>
 
 const sortDescending = (n1: number, n2: number) => n2 - n1;
 
-export async function solution() {
+export async function solutionPartOne() {
   return pipe(
     split(/[^0-9]\n/),
     map(formatStringsIntoCollections),
@@ -31,4 +31,4 @@ export async function solution() {
     pluckAt(0)
   )(await readInput());
 }
-solution().then(a => console.log(a))
+solutionPartOne().then((a) => console.log(a));
