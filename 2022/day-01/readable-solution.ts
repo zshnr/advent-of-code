@@ -8,7 +8,7 @@ const sort = <A>(compareFn: (arg1: A, arg2: A) => number) => (arr: Array<A>) => 
 const slice = <T>(from: number, to?: number) => (arr: Array<T>) => to ? arr.slice(from, to) : arr.slice(from)
 
 const readInput = async (): Promise<string> => {
-  return await fs.readFile(`${__dirname}/input.txt`, { encoding: "utf-8" });
+  return await fs.readFile(`${__dirname}/input.txt`, { encoding: 'utf-8' });
 };
 
 const formatStringsIntoCollections = (s: string) =>
