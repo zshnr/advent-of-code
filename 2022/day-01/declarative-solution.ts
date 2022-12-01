@@ -34,10 +34,10 @@ async function solution() {
 
   const topMostCalories = pipe(slice(0, 1), reduce(sum, 0))(sortedArray)
 
-  console.log('Question 1, Part 1', topMostCalories)
+  console.log('elf with most calories: ', topMostCalories)
 
   const topThreeMostCaloriesCumulated = pipe(slice(0, 3), reduce(sum, 0))(sortedArray)
 
-  console.log('Question 2, Part 2', topThreeMostCaloriesCumulated)
+  console.log('Cumulative calories of top three elves: ', topThreeMostCaloriesCumulated)
 }
 solution().then();
