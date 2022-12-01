@@ -1,4 +1,4 @@
-import fs from 'fs/promises'
+import * as fs from 'fs/promises'
 
 const map = <A, B>(mapFn: (arg: A) => B) => (arr: Array<A>) => arr.map(mapFn);
 const pipe = <T>(...ops: Array<Function>) => ops.reduce((a, b) => (arg: T) => b(a(arg)));
