@@ -1,7 +1,7 @@
 {
   "scripts": {
-    "dayOne": "ts-node ./2022/day-01/readable-solution.ts",
-    "dayOneImperative": "node ./2022/day-01/not-readable-solution.js"
+    "dayOne": "ts-node ./2022/day-01/declarative-solution.ts",
+    "dayOneImperative": "node ./2022/day-01/imperative-solution.js"
   },
   "devDependencies": {
     "@types/node": "^18.11.10",
