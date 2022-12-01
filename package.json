@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "dayOne": "ts-node ./2022/day-01/solution.ts"
+    "dayOne": "ts-node ./2022/day-01/readable-solution.ts"
   },
   "devDependencies": {
     "@types/node": "^18.11.10",
