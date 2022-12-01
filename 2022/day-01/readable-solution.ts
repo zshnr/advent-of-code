@@ -26,25 +26,17 @@ const sum = (n1: number, n2: number) => n1 + n2
 
 async function solution() {
   const input = await readInput()
-  const topMostCalories = pipe(
+  const sortedArray = pipe(
     split(/[^0-9]\n/),
     map(formatStringsIntoCollections),
     flatMap(calculateTotalCaloriesForEachElf),
-    sort(sortDescending),
-    slice(0, 1),
-    reduce(sum, 0)
-  )(input)
+    sort(sortDescending))(input)
+
+  const topMostCalories = pipe(slice(0, 1), reduce(sum, 0))(sortedArray)
 
   console.log('Question 1, Part 1', topMostCalories)
 
-  const topThreeMostCaloriesCumulated = pipe(
-    split(/[^0-9]\n/),
-    map(formatStringsIntoCollections),
-    flatMap(calculateTotalCaloriesForEachElf),
-    sort(sortDescending),
-    slice(0, 1),
-    reduce(sum, 0)
-  )(input)
+  const topThreeMostCaloriesCumulated = pipe(slice(0, 3), reduce(sum, 0))(sortedArray)
 
   console.log('Question 2, Part 2', topThreeMostCaloriesCumulated)
 }
