@@ -1,9 +1,10 @@
 {
   "scripts": {
-    "dayOne": "ts-node ./2022/day-01/declarative-solution.ts",
-    "dayOneImperative": "node ./2022/day-01/imperative-solution.js",
-    "dayTwo": "node ./2022/day-02/solution.js",
-    "dayThree": "node ./2022/day-03/solution.js"
+    "2022:one": "ts-node ./2022/day-01/declarative-solution.ts",
+    "2022:oneImperative": "node ./2022/day-01/imperative-solution.js",
+    "2022:two": "node ./2022/day-02/solution.js",
+    "2022:three": "node ./2022/day-03/solution.js",
+    "2022:four": "node ./2022/day-04/solution.js"
   },
   "devDependencies": {
     "@types/node": "^18.11.10",
