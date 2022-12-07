@@ -14,7 +14,11 @@ async function solution() {
   console.log(rearrangedStacks)
   const firstFromEachStack = getFirstFromEachStack(rearrangedStacks)
 
+  const rearrangedStacks9001 = carryOutInstructions9001(instructions, transposedStacks)
+  const firstFromEachStack9001 = getFirstFromEachStack(rearrangedStacks)
+
   console.log('For the first part of the puzzle, the answer is', firstFromEachStack)
+  console.log('For the second part of the puzzle, the answer is', firstFromEachStack9001)
 }
 
 function parseInputToArray(input) {
@@ -90,8 +94,51 @@ function carryOutInstructions(instructions, stacks) {
   return stacks
 }
 
+function carryOutInstructions9001(instructions, stacks) {
+  for (let i = 0; i < instructions.length; i++) {
+    const instruction = instructions[i]
+    const stacksFromIndex = instruction[1] - 1
+    const stackFrom = stacks[stacksFromIndex]
+    const stacksToIndex = instruction[2] - 1
+    const stackTo = stacks[stacksToIndex]
+    const qtyToMove = instruction[0]
+
+    if (qtyToMove === 1) {
+      const letterToMoveIndex = stackFrom.findIndex(s => s !== ' ')
+      const letterToMove = stackFrom[letterToMoveIndex]
+
+      const emptySpaceIndex = stackTo.findLastIndex(s => s === ' ')
+
+      if (emptySpaceIndex === -1) {
+        stackTo.unshift(letterToMove)
+      } else {
+        stackTo[emptySpaceIndex] = letterToMove
+      }
+
+      stackFrom[letterToMoveIndex] = ' '
+    } else if (qtyToMove > 1) {
+      for (let j = 1; j <= qtyToMove; j++) {
+        const letterToMoveIndex = stackFrom.findIndex(s => s !== ' ')
+        const lettersToMove = stackFrom.slice(letterToMoveIndex, letterToMoveIndex + qtyToMove)
+
+        const emptySpaceIndex = stackTo.findLastIndex(s => s === ' ')
+
+        if (emptySpaceIndex === -1) {
+          stackTo.unshift(...lettersToMove)
+        } else {
+          stackTo.splice(emptySpaceIndex, qtyToMove, ...lettersToMove)
+        }
+
+        stackFrom.splice(letterToMoveIndex, qtyToMove, ...Array(qtyToMove).fill(' '))
+      }
+    }
+  }
+
+  return stacks
+}
+
 function getFirstFromEachStack(stacks) {
-  return stacks.map(stack => stack.find(s => s !== ' ')).join(''))
+  return stacks.map(stack => stack.find(s => s !== ' ')).join('')
 }
 
 solution().then()

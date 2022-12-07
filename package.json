@@ -5,7 +5,8 @@
     "2022:two": "node ./2022/day-02/solution.js",
     "2022:three": "node ./2022/day-03/solution.js",
     "2022:four": "node ./2022/day-04/solution.js",
-    "2022:five": "node ./2022/day-05/solution.js"
+    "2022:five": "node ./2022/day-05/solution.js",
+    "2022:six": "node ./2022/day-06/solution.js"
   },
   "devDependencies": {
     "@types/node": "^18.11.10",
